@@ -11,6 +11,13 @@
         <div id="god_result"></div>
         <script>
             // get_data_using_ajax('r');
+            function get_data_using_ajax_fetch(){
+                var q=document.getElementById("god").value;
+               var ajax_response = fetch("ajax_server.php?search="+ q).then(res =>
+                    console.log(res.text())
+
+                )
+            }
             function get_data_using_ajax(){
                 var q=document.getElementById("god").value;
                 let xmlhttp=new XMLHttpRequest();
@@ -22,7 +29,7 @@
                         
                     }
                 }
-                xmlhttp.open("GET","ajax_server.php?q="+ q,true);
+                xmlhttp.open("GET","ajax_server.php?search="+ q,true);
                 xmlhttp.send();
             }
         </script>
